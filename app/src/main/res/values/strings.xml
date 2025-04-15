@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">pokeapp</string>
+    <string name="open_app_text">Abrir app</string>
 </resources>
