@@ -10,6 +10,16 @@
         android:name="com.wilfredo.poke.module.ui.pokemonlist.PokemonListFragment"
         android:label="FragmentPokeList"
         tools:layout="@layout/fragment_pokemon_list">
+        <action
+            android:id="@+id/action_poke_list_to_pokemon_detail"
+            app:destination="@id/PokemonDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/PokemonDetailFragment"
+        android:name="com.wilfredo.poke.module.ui.pokemondetail.PokemonDetailFragment"
+        android:label="PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail">
     </fragment>
 
 </navigation>

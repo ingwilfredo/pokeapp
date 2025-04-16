@@ -5,8 +5,10 @@ import com.wilfredo.poke.module.data.database.PokemonDatabase
 import com.wilfredo.poke.module.data.performUpdateOperation
 import com.wilfredo.poke.module.data.toPokemon
 import com.wilfredo.poke.module.data.toRoomPokemon
+import com.wilfredo.poke.module.data.toRoomPokemonDetail
 import com.wilfredo.poke.module.domain.repository.PokemonRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 class PokemonRepositoryImpl(
@@ -18,14 +20,14 @@ class PokemonRepositoryImpl(
         db.pokemonDao().getPokemonCount()
     }
 
-    override suspend fun getPokemon()= withContext(Dispatchers.IO) {
+    override suspend fun getPokemon() = withContext(Dispatchers.IO) {
         db.pokemonDao().getPokemon().map { it.toPokemon() }
     }
 
-    override suspend fun fetchPokemon() = withContext(Dispatchers.IO) {
+    override suspend fun fetchPokemon(pageSize: Int, currentPage: Int) = withContext(Dispatchers.IO) {
         performUpdateOperation(
             {
-                apiService.getPokemon(20, 100)
+                apiService.getPokemon(pageSize, currentPage)
             },
             { response ->
                 response?.results?.map { it.toRoomPokemon() }
@@ -36,4 +38,33 @@ class PokemonRepositoryImpl(
             }
         )
     }
+
+    override suspend fun updatePokemonByName(name: String) = withContext(Dispatchers.IO) {
+        performUpdateOperation(
+            {
+                apiService.getPokemonDetail(name)
+            },
+            { response ->
+                response?.toRoomPokemonDetail()
+            },
+            { pokemon ->
+                db.pokemonDao().updatePokemonByName(name, pokemon.pokemonId, pokemon.height, pokemon.weight)
+                db.pokemonDao().findPokemonByName(name).map {
+                    it.toPokemon()
+                }
+            }
+        )
+    }
+
+    override suspend fun findPokemonById(id: Int) = withContext(Dispatchers.IO) {
+        db.pokemonDao().findPokemonById(id).map {
+            it?.toPokemon()
+        }
+    }
+
+    override suspend fun togglePokemonFavorite(pokemonId: Int, isFavorite: Boolean) =
+        withContext(Dispatchers.IO) {
+            db.pokemonDao().toggleFavorite(pokemonId, isFavorite)
+        }
 }
+

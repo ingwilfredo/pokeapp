@@ -1,1 +1,9 @@
-<resources></resources>
+<resources>
+
+    <string name="name_text">Nombre:</string>
+    <string name="height_text">Altura:</string>
+    <string name="weight_text">Peso:</string>
+    <string name="height_value_text">%1$sm</string>
+    <string name="weight_value_text">%1$skg</string>
+    <string name="error_service">Ocurrió un error al intentar obtener la información.</string>
+</resources>

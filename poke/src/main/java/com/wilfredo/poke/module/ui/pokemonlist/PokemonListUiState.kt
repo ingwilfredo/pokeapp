@@ -5,6 +5,6 @@ import com.wilfredo.poke.module.domain.model.Pokemon
 sealed class PokemonListUiState {
     data object Start: PokemonListUiState()
     data object Loading : PokemonListUiState()
-    data class Content(val movies: List<Pokemon>) : PokemonListUiState()
+    data class Success(val pokemon: List<Pokemon>) : PokemonListUiState()
     data object Error : PokemonListUiState()
 }

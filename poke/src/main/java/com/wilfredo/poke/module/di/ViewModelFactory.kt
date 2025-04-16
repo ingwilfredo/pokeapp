@@ -3,6 +3,7 @@ package com.wilfredo.poke.module.di
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.wilfredo.poke.module.ui.pokemondetail.PokemonDetailViewModel
 import com.wilfredo.poke.module.ui.pokemonlist.PokemonListViewModel
 
 class ViewModelFactory(
@@ -15,10 +16,12 @@ class ViewModelFactory(
         val appContext = context.applicationContext
         return when(moduleViewModel) {
             ModuleViewModel.PokemonList -> ModuleViewModelProvider.providesPokemonList(appContext)
+            ModuleViewModel.PokemonDetail -> ModuleViewModelProvider.providesPokemonDetail(appContext)
         } as T
     }
 }
 
 enum class ModuleViewModel(val clazz: Class<*>) {
-    PokemonList(PokemonListViewModel::class.java)
+    PokemonList(PokemonListViewModel::class.java),
+    PokemonDetail(PokemonDetailViewModel::class.java)
 }
