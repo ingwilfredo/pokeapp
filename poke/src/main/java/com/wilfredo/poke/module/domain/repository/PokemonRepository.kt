@@ -1,6 +1,7 @@
 package com.wilfredo.poke.module.domain.repository
 
 import com.wilfredo.poke.module.data.DataResult
+import com.wilfredo.poke.module.data.database.model.PokemonWithTypes
 import com.wilfredo.poke.module.domain.model.Pokemon
 import kotlinx.coroutines.flow.Flow
 

@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "797506418678",
+    "firebase_url": "https://location-b2090-default-rtdb.firebaseio.com",
+    "project_id": "location-b2090",
+    "storage_bucket": "location-b2090.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797506418678:android:57d2f22ac7f80f62e4b9d7",
+        "android_client_info": {
+          "package_name": "com.wilfredo.poke.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdgdA37TAeWkjZK1g6PDK9mWwP_G6q2cA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797506418678:android:be93623f6e0edc06e4b9d7",
+        "android_client_info": {
+          "package_name": "com.wilfredo.poke.module"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdgdA37TAeWkjZK1g6PDK9mWwP_G6q2cA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

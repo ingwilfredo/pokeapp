@@ -6,4 +6,10 @@
     <string name="height_value_text">%1$sm</string>
     <string name="weight_value_text">%1$skg</string>
     <string name="error_service">Ocurrió un error al intentar obtener la información.</string>
+    <string name="title_pokemon">Pokemon</string>
+    <string name="title_location">Ubicación</string>
+    <string name="location_stop_text">Detener Guardado de Ubicació</string>
+    <string name="permission_denied_text">Permiso denegado</string>
+    <string name="location_saved_text">Ubicación guardada</string>
+    <string name="types_text">Tipos:</string>
 </resources>

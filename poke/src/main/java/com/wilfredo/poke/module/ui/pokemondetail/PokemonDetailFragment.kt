@@ -1,6 +1,7 @@
 package com.wilfredo.poke.module.ui.pokemondetail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,6 +72,7 @@ class PokemonDetailFragment : Fragment() {
                 pokemonName.text = pokemon.name.toLowercase()
                 pokemonHeight.text = getString(R.string.height_value_text, pokemon.height.toString())
                 pokemonWeight.text = getString(R.string.weight_value_text, pokemon.weight.toString())
+                pokemonTypes.text = pokemon.types.distinct().joinToString { it.toLowercase() }
                 val favIcon = if (pokemon.isFavorite) R.drawable.ic_favorite_fill
                 else R.drawable.ic_favorite
                 fabToggleFavorite.setImageResource(favIcon)

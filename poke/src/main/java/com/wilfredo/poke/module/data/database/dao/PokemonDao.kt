@@ -2,7 +2,9 @@ package com.wilfredo.poke.module.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
 import com.wilfredo.poke.module.data.database.model.PokemonEntity
+import com.wilfredo.poke.module.data.database.model.PokemonWithTypes
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,6 +17,10 @@ interface PokemonDao : BaseDao<PokemonEntity> {
 
     @Query("SELECT * FROM Pokemon WHERE id=:id")
     fun findPokemonById(id: Int): Flow<PokemonEntity?>
+
+    @Transaction
+    @Query("SELECT * FROM Pokemon WHERE Pokemon.id=:id")
+    fun findPokemonWithTypesById(id: Int): Flow<PokemonWithTypes?>
 
     @Query("SELECT * FROM Pokemon WHERE name=:name")
     fun findPokemonByName(name: String): List<PokemonEntity>

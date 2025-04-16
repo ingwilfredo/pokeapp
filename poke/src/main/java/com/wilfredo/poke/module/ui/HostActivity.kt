@@ -3,6 +3,8 @@ package com.wilfredo.poke.module.ui
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.wilfredo.poke.module.databinding.ActivityHostBinding
 
 class HostActivity : AppCompatActivity() {
@@ -14,5 +16,6 @@ class HostActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.bottomNav.setupWithNavController(binding.activityHostContainer.getFragment<NavHostFragment>().navController)
     }
 }

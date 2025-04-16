@@ -3,6 +3,8 @@ package com.wilfredo.poke.app
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.wilfredo.poke.app.databinding.ActivityMainBinding
 import com.wilfredo.poke.module.expose.Expose
 
@@ -19,3 +21,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
+

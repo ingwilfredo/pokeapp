@@ -59,8 +59,9 @@ class PokemonListFragment : Fragment() {
 
     private fun initElements() {
 
+        binding.toolbar.title = getString(R.string.app_title)
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+            activity?.finish()
         }
 
         adapter =

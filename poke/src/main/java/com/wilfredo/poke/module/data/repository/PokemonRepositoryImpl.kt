@@ -2,8 +2,10 @@ package com.wilfredo.poke.module.data.repository
 
 import com.wilfredo.poke.module.data.api.PokemonApiService
 import com.wilfredo.poke.module.data.database.PokemonDatabase
+import com.wilfredo.poke.module.data.database.model.TypePokemonEntity
 import com.wilfredo.poke.module.data.performUpdateOperation
 import com.wilfredo.poke.module.data.toPokemon
+import com.wilfredo.poke.module.data.toPokemonDetail
 import com.wilfredo.poke.module.data.toRoomPokemon
 import com.wilfredo.poke.module.data.toRoomPokemonDetail
 import com.wilfredo.poke.module.domain.repository.PokemonRepository
@@ -49,6 +51,10 @@ class PokemonRepositoryImpl(
             },
             { pokemon ->
                 db.pokemonDao().updatePokemonByName(name, pokemon.pokemonId, pokemon.height, pokemon.weight)
+                pokemon.types.map { type ->
+                    db.typePokemonDao().insertTypePokemon(TypePokemonEntity(0, pokemon.pokemonId, type.name, type.url))
+                }
+
                 db.pokemonDao().findPokemonByName(name).map {
                     it.toPokemon()
                 }
@@ -57,8 +63,8 @@ class PokemonRepositoryImpl(
     }
 
     override suspend fun findPokemonById(id: Int) = withContext(Dispatchers.IO) {
-        db.pokemonDao().findPokemonById(id).map {
-            it?.toPokemon()
+        db.pokemonDao().findPokemonWithTypesById(id).map {
+            it?.toPokemonDetail()
         }
     }
 

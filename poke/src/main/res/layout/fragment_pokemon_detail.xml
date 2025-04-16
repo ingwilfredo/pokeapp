@@ -129,4 +129,30 @@
         app:layout_constraintStart_toEndOf="@id/pokemon_weight_label"
         app:layout_constraintTop_toBottomOf="@id/pokemon_height_label" />
 
+    <TextView
+        android:id="@+id/pokemon_types_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:maxLines="2"
+        android:text="@string/types_text"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_weight_label" />
+
+    <TextView
+        android:id="@+id/pokemon_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="16dp"
+        tools:text="Fire"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/pokemon_types_label"
+        app:layout_constraintTop_toBottomOf="@id/pokemon_weight_label" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

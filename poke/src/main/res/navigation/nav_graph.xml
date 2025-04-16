@@ -22,4 +22,11 @@
         tools:layout="@layout/fragment_pokemon_detail">
     </fragment>
 
+    <fragment
+        android:id="@+id/LocationFragment"
+        android:name="com.wilfredo.poke.module.ui.location.LocationFragment"
+        android:label="LocationFragment"
+        tools:layout="@layout/fragment_location">
+    </fragment>
+
 </navigation>

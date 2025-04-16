@@ -7,5 +7,6 @@ data class Pokemon(
     val url: String = "",
     val height: Int = 0,
     val weight: Int = 0,
-    var isFavorite: Boolean = false
+    var isFavorite: Boolean = false,
+    val types: List<String> = emptyList()
 )
